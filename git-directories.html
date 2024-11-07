@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from raw.githack.com/git-directories by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 19:02:05 GMT -->
+<head>
+
+<meta charset="utf-8">
+<title>Per-directory git configuration | raw.githack.com</title>
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Sometimes, you want different config files to be in action based on the directory you're in">
+<link rel="stylesheet" href="../rawcdn.githack.com/neoascetic/rawgithack/ee590f6/web/rawgithack9b51.css?min=1">
+
+<link rel="canonical" href="git-directories.html">
+<link rel="search" type="application/opensearchdescription+xml" href="http://rawcdn.githack.com/neoascetic/rawgithack/465ac52/web/opensearch.xml" title="raw.githack.com">
+<link rel="icon" href="http://rawcdn.githack.com/neoascetic/rawgithack/092e86b/web/sushi.svg">
+
+</head>
+
+<body>
+
+<header class="hd">
+  <h1 class="title">
+    <img class="logo" src="http://rawcdn.githack.com/neoascetic/rawgithack/092e86b/web/sushi.svg" alt="Logo icon">
+    <a href="index.html">raw.githack.com</a>
+  </h1>
+  <nav class="nav">
+    <ul>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="purge-cache.html">Purge cache</a></li>
+      <li><a href="hacks.html">Git Hacks<sup>new</sup></a></li>
+      <li><a href="faq.html#sponsorship">❤️</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div><script async src="../cdn.carbonads.com/carbonf059.js?serve=CEADPK3U&amp;placement=rawgithackcom" id="_carbonads_js"></script></div>
+
+<div class="bd">
+  <div class="content">
+
+<p class="hero">
+  <strong>Per-directory git configuration</strong>
+  <span class="desc">Sometimes, you want different config files to be in action based on the directory you're in</span>
+</p>
+
+<p>Let&rsquo;s  jump  right to  the  example  from my  practice.  At  my job,  we
+have  a self-hosted  git solution  where  internal emails  are used  for
+authentication.  At  the  same  time,   sometimes  I  need  to  work  on
+open-source  projects used  by our  company services,  and want  to send
+patches there signed off with my personal email.</p>
+
+<p>There are multiple approaches to this.</p>
+
+<p>The first is  to have per-project git configurations. This  works if you
+have just a few  repos, and you need not to  forget to reconfigure every
+new project  you create or clone.  The second approach is  to override a
+commit&rsquo;s  author using  environment variables  or one-run  configuration
+changes  each  time you  do  commit  your  changes.  This is  even  more
+cumbersome.</p>
+
+<p>The third  approach and easiest  one is  to use conditional  includes in
+your  global config  file. Let&rsquo;s  say all  your work-specific  repos are
+located in <code>~/work</code> directory. Then, you can have something like this in
+your global <code>~/.gitconfig</code> file:</p>
+
+<pre><code>[user]
+name = John Doe
+email = john.doe@gmail.com
+
+[includeIf &quot;gitdir:~/work/&quot;]
+path = ~/.gitconfig.work
+</code></pre>
+
+<p>This way, if your git directory  is a subdirectory of <code>~/work</code>, git will
+include configuration from <code>~/.gitconfig.work</code>,  in which you can easily
+override your email (and any other configuration if you want), as simple
+as that:</p>
+
+<pre><code>[user]
+email = john.does@my-company.com
+</code></pre>
+
+<p>So now, when  you do commit in  your <code>~/work/super-secret-project</code>, your
+<code>john.does@my-company.com</code> will  be used  as an email,  while if  you do
+that  in  <code>~/open-source/dependency</code> your  regular  <code>john.doe@gmail.com</code>
+will be used instead! Voila!</p>
+
+<p>Happy hacking!</p>
+
+  </div>
+</div>
+
+<footer class="ft">
+  <p>
+    © <strong>2013 — 2024</strong> Pavel Puchkin
+    <br>
+    <a href="http://thenounproject.com/noun/sushi/#icon-No14497">Sushi icon</a> designed by <a href="http://thenounproject.com/lnakanishi">Linda Yuki Nakanishi</a> from The Noun Project.
+    <br>
+    <a href="faq.html">FAQ</a>
+    <a href="hacks.html">Hacks</a>
+    <a href="purge-cache.html">Purge cache</a>
+    <a href="faq.html#feedback">Report abuse</a>
+    <a href="https://stats.uptimerobot.com/XAMJYh438n">Status page</a>
+    <a href="https://github.com/neoascetic/rawgithack">Source code</a>
+  </p>
+</footer>
+
+
+<script defer src="../rawcdn.githack.com/cdnjs/cdnjs/0971b44/ajax/libs/fetch/2.0.1/fetch.min9b51.js?min=1"></script>
+<script defer src="../rawcdn.githack.com/neoascetic/rawgithack/c162f69/web/rawgithack9b51.js?min=1"></script>
+<script defer src="../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9fdcadef580f4335ad3c1e18bf166d0f"}'></script>
+
+</body>

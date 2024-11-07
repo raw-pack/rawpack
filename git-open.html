@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from raw.githack.com/git-open by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 19:02:05 GMT -->
+<head>
+
+<meta charset="utf-8">
+<title>Git open anything | raw.githack.com</title>
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="One more (implicit!) alias to improve your git workflow">
+<link rel="stylesheet" href="../rawcdn.githack.com/neoascetic/rawgithack/ee590f6/web/rawgithack9b51.css?min=1">
+
+<link rel="canonical" href="git-open.html">
+<link rel="search" type="application/opensearchdescription+xml" href="http://rawcdn.githack.com/neoascetic/rawgithack/465ac52/web/opensearch.xml" title="raw.githack.com">
+<link rel="icon" href="http://rawcdn.githack.com/neoascetic/rawgithack/092e86b/web/sushi.svg">
+
+</head>
+
+<body>
+
+<header class="hd">
+  <h1 class="title">
+    <img class="logo" src="http://rawcdn.githack.com/neoascetic/rawgithack/092e86b/web/sushi.svg" alt="Logo icon">
+    <a href="index.html">raw.githack.com</a>
+  </h1>
+  <nav class="nav">
+    <ul>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="purge-cache.html">Purge cache</a></li>
+      <li><a href="hacks.html">Git Hacks<sup>new</sup></a></li>
+      <li><a href="faq.html#sponsorship">❤️</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div><script async src="../cdn.carbonads.com/carbonf059.js?serve=CEADPK3U&amp;placement=rawgithackcom" id="_carbonads_js"></script></div>
+
+<div class="bd">
+  <div class="content">
+
+<p class="hero">
+  <strong>Git open anything</strong>
+  <span class="desc">One more (implicit!) alias to improve your git workflow</span>
+</p>
+
+<p>We&rsquo;ve already discussed git  aliases in a <a href="git-aliases.html">separate post</a>.
+But there is  one more helpful thing, which is  an individual tool, thus
+we  didn&rsquo;t discuss  it  altogether with  other aliases.  Git  open is  a
+shortcut CLI  command that allows  you to  open a repo  website (GitHub,
+GitLab, or  Bitbucket) in  your browser.  The typical  use case  is when
+you&rsquo;ve  commited and  pushed something  and  then want  to quickly  open
+GitHub to create a PR.</p>
+
+<p>The  command  is registered  as  an  implicit  alias.  That&rsquo;s it  —  any
+executable on  your path  that is  <code>git-</code> prefixed is  treated as  a git
+subcommand, so you  can call it without a dash,  for example, <code>git open</code>
+will simply  call <code>git-open</code>  bash script that  exists in  your <code>$PATH</code>.
+This said, you just need to grab the script and put it in a folder which
+is in your path:</p>
+
+<pre><code>curl https://raw.githubusercontent.com/paulirish/git-open/master/git-open &gt; /usr/local/bin/git-open
+chmod +x /usr/local/bin/git-open
+</code></pre>
+
+<p>Voila! You  can not  jump in  any repo published  on GitHub,  GitLab, or
+Bitbucket and type  <code>git open</code> to open the browser!  Neat. Of course, if
+you are in a  forked repository and want to open  upstream repo, you can
+do that with <code>git open upstream</code>.  To open a specific branch, please use
+<code>git open origin branch</code>.</p>
+
+<p>The   project  <a href="https://github.com/paulirish/git-open">repo</a>   has  more
+documentation on  how to install  the script with your  favorite package
+manager, how to use self-hosted solutions, etc.</p>
+
+<p>Happy hacking!</p>
+
+  </div>
+</div>
+
+<footer class="ft">
+  <p>
+    © <strong>2013 — 2024</strong> Pavel Puchkin
+    <br>
+    <a href="http://thenounproject.com/noun/sushi/#icon-No14497">Sushi icon</a> designed by <a href="http://thenounproject.com/lnakanishi">Linda Yuki Nakanishi</a> from The Noun Project.
+    <br>
+    <a href="faq.html">FAQ</a>
+    <a href="hacks.html">Hacks</a>
+    <a href="purge-cache.html">Purge cache</a>
+    <a href="faq.html#feedback">Report abuse</a>
+    <a href="https://stats.uptimerobot.com/XAMJYh438n">Status page</a>
+    <a href="https://github.com/neoascetic/rawgithack">Source code</a>
+  </p>
+</footer>
+
+
+<script defer src="../rawcdn.githack.com/cdnjs/cdnjs/0971b44/ajax/libs/fetch/2.0.1/fetch.min9b51.js?min=1"></script>
+<script defer src="../rawcdn.githack.com/neoascetic/rawgithack/c162f69/web/rawgithack9b51.js?min=1"></script>
+<script defer src="../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9fdcadef580f4335ad3c1e18bf166d0f"}'></script>
+
+</body>

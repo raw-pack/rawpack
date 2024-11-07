@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from raw.githack.com/git-aliases by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Nov 2024 19:02:05 GMT -->
+<head>
+
+<meta charset="utf-8">
+<title>Git aliases and how to use them | raw.githack.com</title>
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Aliases is a helpful git feature that lets you do more typing less. Here we'll find out how to use them.">
+<link rel="stylesheet" href="../rawcdn.githack.com/neoascetic/rawgithack/ee590f6/web/rawgithack9b51.css?min=1">
+
+<link rel="canonical" href="git-aliases.html">
+<link rel="search" type="application/opensearchdescription+xml" href="http://rawcdn.githack.com/neoascetic/rawgithack/465ac52/web/opensearch.xml" title="raw.githack.com">
+<link rel="icon" href="http://rawcdn.githack.com/neoascetic/rawgithack/092e86b/web/sushi.svg">
+
+</head>
+
+<body>
+
+<header class="hd">
+  <h1 class="title">
+    <img class="logo" src="http://rawcdn.githack.com/neoascetic/rawgithack/092e86b/web/sushi.svg" alt="Logo icon">
+    <a href="index.html">raw.githack.com</a>
+  </h1>
+  <nav class="nav">
+    <ul>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="purge-cache.html">Purge cache</a></li>
+      <li><a href="hacks.html">Git Hacks<sup>new</sup></a></li>
+      <li><a href="faq.html#sponsorship">❤️</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div><script async src="../cdn.carbonads.com/carbonf059.js?serve=CEADPK3U&amp;placement=rawgithackcom" id="_carbonads_js"></script></div>
+
+<div class="bd">
+  <div class="content">
+
+<p class="hero">
+  <strong>Git aliases and how to use them</strong>
+  <span class="desc">Aliases is a helpful git feature that lets you do more typing less. Here we'll find out how to use them.</span>
+</p>
+
+<p>We will start  with a simple statement  &ndash; the less you do  and the more
+you get &ndash; the  better. This means that if you  can achieve something in
+three keystrokes instead of nine your performance is 3x higher. Also, if
+you use an alias, you don&rsquo;t have to remember syntax for complex commands
+you may want to use.</p>
+
+<p>So how can you achieve that? The answer is aliases. Basically, nicknames
+for commands  &ndash; similar  to how  you call your  friend Nick  instead of
+Nicholas. And we  will start with an alias for  <code>git</code> command itself! We
+are going  to shorten that  long 3-letters thing  to just one  symbol &ndash;
+<code>g</code>. At first  sight this doesn&rsquo;t seem like a  big improvement, just one
+keystroke instead of three, but it can save you a lot of time at the end
+of the day.</p>
+
+<p>Just  open  the  config  file  of  your  shell  of  choice  (<code>~/.zshrc</code>,
+<code>~/.bashrc</code>) and put the following line to it:</p>
+
+<pre><code>alias g=&#39;git&#39;
+</code></pre>
+
+<p>Now reopen your current session and start a new one and &ndash; viola! &ndash; now
+you can write  <code>g status</code> instead of that long  <code>git status</code>! Isn&rsquo;t that
+cool? But we are going to improve this even more.</p>
+
+<p>Well, basically, you can now use the  same approach to add even more git
+aliases, i. e.  by using your shell  aliases. But git has  its own alias
+facilities, built in right into it. They can be either global (placed in
+global <code>~/.gitconfig</code>  file) or  per-repo, which can  be useful  in some
+circumstances (say you have to do some routine operation but only in one
+repo from a dozen).</p>
+
+<p>Okay, let&rsquo;s jump into  it. To create a native git  alias, you can either
+open <code>~/.gitconfig</code> file and add a  new entry under <code>[alias]</code> block (you
+may have to create  the file and the block first) or  use git command to
+manipulate its own  config file. For example, let&rsquo;s create  an alias for
+the <code>status</code> command:</p>
+
+<pre><code>g config --global alias.st status
+</code></pre>
+
+<p>Type that in, and then do <code>g st</code> in any repo. Whoa! How fast is that?!</p>
+
+<p>I will now provide  a list of some aliases I use  daily, maybe they will
+be useful for  you too. But don&rsquo;t  just stick to this list  &ndash; extend it
+with your own findings!</p>
+
+<pre><code>[alias]
+co = checkout             # &quot;g co main&quot; instead of &quot;git checkout main&quot;
+cm = commit -v            # &quot;g cm&quot; to commit something
+amend = commit --amend    # when you want to add more changes to the current commit
+reword = commit --amend   # to change commit message of the last commit you did
+undo = reset --soft HEAD^ # to, well, undo the commit (without resetting changes)
+df = diff --color-words   # to see inline changes
+mg = merge --no-ff        # merge with explicit merge commit
+
+# pretty history viewer with ascii-art branches, merging, etc
+hist = log --pretty=format:&#39;%Cred%h%Creset %ad | %Cgreen%s%d%Creset [%an]&#39; --graph --date=short
+</code></pre>
+
+<p>Happy hacking!</p>
+
+  </div>
+</div>
+
+<footer class="ft">
+  <p>
+    © <strong>2013 — 2024</strong> Pavel Puchkin
+    <br>
+    <a href="http://thenounproject.com/noun/sushi/#icon-No14497">Sushi icon</a> designed by <a href="http://thenounproject.com/lnakanishi">Linda Yuki Nakanishi</a> from The Noun Project.
+    <br>
+    <a href="faq.html">FAQ</a>
+    <a href="hacks.html">Hacks</a>
+    <a href="purge-cache.html">Purge cache</a>
+    <a href="faq.html#feedback">Report abuse</a>
+    <a href="https://stats.uptimerobot.com/XAMJYh438n">Status page</a>
+    <a href="https://github.com/neoascetic/rawgithack">Source code</a>
+  </p>
+</footer>
+
+
+<script defer src="../rawcdn.githack.com/cdnjs/cdnjs/0971b44/ajax/libs/fetch/2.0.1/fetch.min9b51.js?min=1"></script>
+<script defer src="../rawcdn.githack.com/neoascetic/rawgithack/c162f69/web/rawgithack9b51.js?min=1"></script>
+<script defer src="../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9fdcadef580f4335ad3c1e18bf166d0f"}'></script>
+
+</body>
